@@ -1,13 +1,15 @@
-{% set version = "4.3.0" %}
+{% set name = "psutil" %}
+{% set version = "4.3.1" %}
+{% set sha256 = "38f74182fb9e15cafd0cdf0821098a95cc17301807aed25634a18b66537ba51b" %}
 
 package:
-  name: psutil
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: psutil-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
-  md5: ca97cf5f09c07b075a12a68b9d44a67d
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }} 
 
 build:
   number: 0
