@@ -39,7 +39,6 @@ before_install:
       chmod +x ~/cache/uninstall_homebrew
       ~/cache/uninstall_homebrew -fq
 
-
 install:
     # Install Miniconda.
     - |
