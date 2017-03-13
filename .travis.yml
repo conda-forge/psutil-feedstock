@@ -6,6 +6,10 @@ language: generic
 os: osx
 osx_image: xcode6.4
 
+cache:
+  directories:
+  - $HOME/cache
+
 env:
   matrix:
     
@@ -18,6 +22,9 @@ env:
 
 
 before_install:
+    # Create cache directory.
+    - mkdir -p $HOME/cache
+
     # Fast finish the PR.
     - |
       (curl https://raw.githubusercontent.com/conda-forge/conda-forge-build-setup-feedstock/master/recipe/ff_ci_pr_build.py | \
@@ -27,10 +34,10 @@ before_install:
     - |
       echo ""
       echo "Removing homebrew from Travis CI to avoid conflicts."
-      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
-      chmod +x ~/uninstall_homebrew
-      ~/uninstall_homebrew -fq
-      rm ~/uninstall_homebrew
+      test -f ~/cache/uninstall_homebrew || \
+      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/cache/uninstall_homebrew
+      chmod +x ~/cache/uninstall_homebrew
+      ~/cache/uninstall_homebrew -fq
 
 
 install:
