@@ -1,6 +1,6 @@
 {% set name = "psutil" %}
-{% set version = "5.2.2" %}
-{% set sha256 = "44746540c0fab5b95401520d29eb9ffe84b3b4a235bd1d1971cbe36e1f38dd13" %}
+{% set version = "5.3.1" %}
+{% set sha256 = "12dd9c8abbad15f055e9579130035b38617020ce176f4a498b7870e6321ffa67" %}
 
 package:
   name: {{ name }}
@@ -9,7 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/p/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }} 
+  sha256: {{ sha256 }}
 
 build:
   number: 0
