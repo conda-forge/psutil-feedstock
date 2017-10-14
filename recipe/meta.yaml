@@ -1,6 +1,6 @@
 {% set name = "psutil" %}
-{% set version = "5.3.1" %}
-{% set sha256 = "12dd9c8abbad15f055e9579130035b38617020ce176f4a498b7870e6321ffa67" %}
+{% set version = "5.4.0" %}
+{% set sha256 = "8e6397ec24a2ec09751447d9f169486b68b37ac7a8d794dca003ace4efaafc6a" %}
 
 package:
   name: {{ name }}
@@ -56,5 +56,6 @@ extra:
   recipe-maintainers:
     - gqmelo
     - jakirkham
+    - jjhelmus
     - pelson
     - nehaljwani
