@@ -9,6 +9,11 @@ Feedstock license: BSD 3-Clause
 
 Summary: A cross-platform process and system utilities module for Python
 
+psutil (process and system utilities) is a cross-platform library for
+retrieving information on running processes and system utilization (CPU,
+memory, disks, network) in Python. It is useful mainly for system
+monitoring, profiling and limiting process resources and management of
+running processes.
 
 
 Current build status
@@ -66,6 +71,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
