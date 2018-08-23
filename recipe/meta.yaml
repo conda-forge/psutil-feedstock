@@ -12,11 +12,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
+    - {{ compiler('c') }}
+
+  host:
     - python
     - setuptools
 
@@ -40,6 +43,7 @@ test:
 about:
   home: https://github.com/giampaolo/psutil
   license: BSD 3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: A cross-platform process and system utilities module for Python
   description: |
