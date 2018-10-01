@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1001
+  script: python -m pip install --ignore-installed --no-deps .
 
 requirements:
   build:
@@ -21,8 +21,7 @@ requirements:
 
   host:
     - python
-    - setuptools
-
+    - pip
   run:
     - python
 
