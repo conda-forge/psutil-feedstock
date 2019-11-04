@@ -1,6 +1,6 @@
 {% set name = "psutil" %}
-{% set version = "5.6.3" %}
-{% set sha256 = "863a85c1c0a5103a12c05a35e59d336e1d665747e531256e061213e2e90f63f3" %}
+{% set version = "5.6.4" %}
+{% set sha256 = "512e854d68f8b42f79b2c7864d997b39125baff9bcff00028ce43543867de7c4" %}
 
 package:
   name: {{ name }}
