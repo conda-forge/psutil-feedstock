@@ -41,7 +41,7 @@ test:
 
 about:
   home: https://github.com/giampaolo/psutil
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: A cross-platform process and system utilities module for Python
