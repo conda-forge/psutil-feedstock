@@ -1,6 +1,6 @@
 {% set name = "psutil" %}
-{% set version = "5.7.2" %}
-{% set sha256 = "90990af1c3c67195c44c9a889184f84f5b2320dce3ee3acbd054e3ba0b4a7beb" %}
+{% set version = "5.7.3" %}
+{% set sha256 = "af73f7bcebdc538eda9cc81d19db1db7bf26f103f91081d780bbacfcb620dee2" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --ignore-installed --no-deps .
 
 requirements:
