@@ -29,11 +29,6 @@ requirements:
     - python
 
 test:
-  requires:
-    - ipaddress    # [py<33]
-    - mock         # [py<33]
-    - unittest2    # [py<27]
-
   imports:
     - psutil
     - psutil._psutil_posix    # [unix]
