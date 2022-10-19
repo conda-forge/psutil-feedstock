@@ -1,14 +1,12 @@
-{% set name = "psutil" %}
-{% set version = "5.9.2" %}
-{% set sha256 = "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c" %}
+{% set version = "5.9.3" %}
+{% set sha256 = "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6" %}
 
 package:
-  name: {{ name }}
+  name: psutil
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/p/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -24,15 +22,11 @@ requirements:
   host:
     - python
     - pip
+    - setuptools >=43
   run:
     - python
 
 test:
-  requires:
-    - ipaddress    # [py<33]
-    - mock         # [py<33]
-    - unittest2    # [py<27]
-
   imports:
     - psutil
     - psutil._psutil_posix    # [unix]
