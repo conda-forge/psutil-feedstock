@@ -23,6 +23,7 @@ requirements:
     - python
     - pip
     - setuptools >=43
+    - wheel
   run:
     - python
 
