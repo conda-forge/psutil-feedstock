@@ -1,11 +1,11 @@
-About psutil
-============
+About psutil-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/psutil-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/giampaolo/psutil
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/psutil-feedstock/blob/main/LICENSE.txt)
 
 Summary: A cross-platform process and system utilities module for Python
 
