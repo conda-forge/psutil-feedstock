@@ -13,7 +13,13 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install --ignore-installed --no-deps .
+  script:
+    # macOS renamed this variable, but it is `NULL` in either case.
+    # Workaround the missing definition by setting it to `0`.
+    #
+    # xref: https://github.com/giampaolo/psutil/issues/2354
+    - export CFLAGS="${CFLAGS} -DkIOMainPortDefault=0"  # [osx]
+    - {{ PYTHON }} -m pip install --ignore-installed --no-deps .
 
 requirements:
   build:
