@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-Add-missing-includes-for-macOS.patch
-    - 0002-upstream-patch-for-pypy.patch  # [python_impl == 'pypy']
+    - 0002-upstream-patch-for-pypy.patch
 
 build:
   number: 0
