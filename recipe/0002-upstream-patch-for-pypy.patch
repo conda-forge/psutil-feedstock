@@ -1,0 +1,75 @@
+From ccdb775abe50125a845362fd0b65f1189c02e78b Mon Sep 17 00:00:00 2001
+From: Giampaolo Rodola <g.rodola@gmail.com>
+Date: Thu, 9 Nov 2023 14:34:11 -0800
+Subject: [PATCH] fix #2325: fix compilation on PyPy
+
+---
+ HISTORY.rst             |  5 +++++
+ psutil/_psutil_common.c | 12 ++++++++++++
+ psutil/_psutil_common.h | 14 +++++++++-----
+ 3 files changed, 26 insertions(+), 5 deletions(-)
+
+diff --git a/HISTORY.rst b/HISTORY.rst
+index 6044d8c50..0c62d823c 100644
+--- a/HISTORY.rst
++++ b/HISTORY.rst
+@@ -10,6 +10,11 @@ XXXX-XX-XX
+ - 2324_: enforce Ruff rule `raw-string-in-exception`, which helps providing
+   clearer tracebacks when exceptions are raised by psutil.
+ 
++**Bug fixes**
++
++- 2325_, [PyPy]: psutil did not compile on PyPy due to missing
++  `PyErr_SetExcFromWindowsErrWithFilenameObject` cPython API.
++
+ 5.9.6
+ =====
+ 
+diff --git a/psutil/_psutil_common.c b/psutil/_psutil_common.c
+index d8d78bf64..d78c140ec 100644
+--- a/psutil/_psutil_common.c
++++ b/psutil/_psutil_common.c
+@@ -58,6 +58,18 @@ PyErr_SetFromWindowsErrWithFilename(int winerr, const char *filename) {
+ #endif  // !defined(PyErr_SetFromWindowsErrWithFilename)
+ 
+ 
++#if !defined(PyErr_SetExcFromWindowsErrWithFilenameObject)
++PyObject *
++PyErr_SetExcFromWindowsErrWithFilenameObject(PyObject *type,
++                                             int ierr,
++                                             PyObject *filename) {
++    // Original function is too complex. Just raise OSError without
++    // filename.
++    return PyErr_SetFromWindowsErrWithFilename(ierr, NULL);
++}
++#endif // !defined(PyErr_SetExcFromWindowsErrWithFilenameObject)
++
++
+ // PyPy 2.7
+ #if !defined(PyErr_SetFromWindowsErr)
+ PyObject *
+diff --git a/psutil/_psutil_common.h b/psutil/_psutil_common.h
+index a425f8685..20c03ebd7 100644
+--- a/psutil/_psutil_common.h
++++ b/psutil/_psutil_common.h
+@@ -31,11 +31,15 @@ static const int PSUTIL_CONN_NONE = 128;
+     #define PyUnicode_DecodeFSDefaultAndSize   PyString_FromStringAndSize
+ #endif
+ 
+-#if defined(PSUTIL_WINDOWS) && \
+-        defined(PYPY_VERSION) && \
+-        !defined(PyErr_SetFromWindowsErrWithFilename)
+-    PyObject *PyErr_SetFromWindowsErrWithFilename(int ierr,
+-                                                  const char *filename);
++#if defined(PSUTIL_WINDOWS) && defined(PYPY_VERSION)
++    #if !defined(PyErr_SetFromWindowsErrWithFilename)
++        PyObject *PyErr_SetFromWindowsErrWithFilename(int ierr,
++                                                      const char *filename);
++    #endif
++    #if !defined(PyErr_SetExcFromWindowsErrWithFilenameObject)
++        PyObject *PyErr_SetExcFromWindowsErrWithFilenameObject(
++            PyObject *type, int ierr, PyObject *filename);
++    #endif
+ #endif
+ 
+ // --- _Py_PARSE_PID
