@@ -1,5 +1,5 @@
-{% set version = "5.9.5" %}
-{% set sha256 = "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c" %}
+{% set version = "5.9.6" %}
+{% set sha256 = "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a" %}
 
 package:
   name: psutil
@@ -8,9 +8,12 @@ package:
 source:
   url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-Add-missing-includes-for-macOS.patch
+    - 0002-upstream-patch-for-pypy.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --ignore-installed --no-deps .
 
 requirements:
