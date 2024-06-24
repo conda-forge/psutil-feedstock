@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-Add-missing-includes-for-macOS.patch
 
 build:
   number: 0
