@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
