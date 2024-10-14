@@ -9,7 +9,9 @@ source:
   url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - gh2428.patch
+    # These two patches are from gh2428
+    - 0001-Fix-GIL-warnings-and-a-few-thread-safety-issues-in-f.patch
+    - 0002-Add-if-argv-NULL-check.patch
 
 build:
   number: 2
