@@ -1,0 +1,27 @@
+From ad34a0bfbd75e2b5a21c0cfc0fee77529e0d2319 Mon Sep 17 00:00:00 2001
+From: Sam Gross <colesbury@gmail.com>
+Date: Mon, 24 Jun 2024 18:26:00 +0000
+Subject: [PATCH 2/2] Add `if (argv != NULL)` check
+
+Signed-off-by: Sam Gross <colesbury@gmail.com>
+---
+ psutil/arch/openbsd/proc.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/psutil/arch/openbsd/proc.c b/psutil/arch/openbsd/proc.c
+index bec2c42..0881ccd 100644
+--- a/psutil/arch/openbsd/proc.c
++++ b/psutil/arch/openbsd/proc.c
+@@ -193,7 +193,8 @@ psutil_proc_cmdline(PyObject *self, PyObject *args) {
+     return py_retlist;
+ 
+ error:
+-    free(argv);
++    if (argv != NULL)
++        free(argv);
+     Py_XDECREF(py_arg);
+     Py_DECREF(py_retlist);
+     return NULL;
+-- 
+2.44.0
+

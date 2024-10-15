@@ -8,9 +8,13 @@ package:
 source:
   url: https://pypi.io/packages/source/p/psutil/psutil-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # These two patches are from gh2428
+    - 0001-Fix-GIL-warnings-and-a-few-thread-safety-issues-in-f.patch
+    - 0002-Add-if-argv-NULL-check.patch
 
 build:
-  number: 1
+  number: 2
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
