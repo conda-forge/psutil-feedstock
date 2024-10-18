@@ -1,5 +1,5 @@
-{% set version = "6.0.0" %}
-{% set sha256 = "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2" %}
+{% set version = "6.1.0" %}
+{% set sha256 = "353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a" %}
 
 package:
   name: psutil
@@ -14,7 +14,7 @@ source:
     - 0002-Add-if-argv-NULL-check.patch
 
 build:
-  number: 2
+  number: 0
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
