@@ -1,5 +1,5 @@
-{% set version = "7.0.0" %}
-{% set sha256 = "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456" %}
+{% set version = "7.1.0" %}
+{% set sha256 = "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2" %}
 
 package:
   name: psutil
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
