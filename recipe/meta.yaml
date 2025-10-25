@@ -1,5 +1,5 @@
-{% set version = "7.1.1" %}
-{% set sha256 = "092b6350145007389c1cfe5716050f02030a05219d90057ea867d18fe8d372fc" %}
+{% set version = "7.1.2" %}
+{% set sha256 = "aa225cdde1335ff9684708ee8c72650f6598d5ed2114b9a7c5802030b1785018" %}
 
 package:
   name: psutil
