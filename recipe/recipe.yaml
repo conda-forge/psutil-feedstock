@@ -1,8 +1,8 @@
 schema_version: 1
 
 context:
-  version: 7.1.1
-  sha256: 092b6350145007389c1cfe5716050f02030a05219d90057ea867d18fe8d372fc
+  version: 7.1.2
+  sha256: aa225cdde1335ff9684708ee8c72650f6598d5ed2114b9a7c5802030b1785018
 
 package:
   name: psutil
@@ -13,7 +13,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
@@ -43,8 +43,6 @@ tests:
   - python:
       imports:
         - psutil
-        - if: unix
-          then: psutil._psutil_posix
         - if: linux
           then: psutil._psutil_linux
         - if: osx
