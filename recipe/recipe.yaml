@@ -63,7 +63,7 @@ about:
     running processes.
   homepage: https://github.com/giampaolo/psutil
   repository: https://github.com/giampaolo/psutil
-  documentation: http://pythonhosted.org/psutil/
+  documentation: https://psutil.readthedocs.io
 
 extra:
   recipe-maintainers:
