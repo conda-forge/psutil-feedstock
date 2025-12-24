@@ -1,8 +1,8 @@
 schema_version: 1
 
 context:
-  version: "7.1.3"
-  sha256: 6c86281738d77335af7aec228328e944b30930899ea760ecf33a4dba66be5e74
+  version: "7.2.0"
+  sha256: 2e4f8e1552f77d14dc96fb0f6240c5b34a37081c0889f0853b3b29a496e5ef64
 
 package:
   name: psutil
@@ -49,7 +49,6 @@ tests:
           then: psutil._psutil_osx
         - if: win
           then: psutil._psutil_windows
-        - psutil.tests
 
 about:
   license: BSD-3-Clause
