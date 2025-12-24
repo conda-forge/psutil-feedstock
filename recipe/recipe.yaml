@@ -49,7 +49,6 @@ tests:
           then: psutil._psutil_osx
         - if: win
           then: psutil._psutil_windows
-        - psutil.tests
 
 about:
   license: BSD-3-Clause
