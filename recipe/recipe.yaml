@@ -1,8 +1,8 @@
 schema_version: 1
 
 context:
-  version: "7.2.0"
-  sha256: 2e4f8e1552f77d14dc96fb0f6240c5b34a37081c0889f0853b3b29a496e5ef64
+  version: "7.2.1"
+  sha256: f7583aec590485b43ca601dd9cea0dcd65bd7bb21d30ef4ddbf4ea6b5ed1bdd3
 
 package:
   name: psutil
