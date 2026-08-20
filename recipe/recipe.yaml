@@ -13,7 +13,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script:
     # macOS renamed this variable, but it is `NULL` in either case.
     # Workaround the missing definition by setting it to `0`.
